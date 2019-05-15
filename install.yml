@@ -1,0 +1,18 @@
+#cloud-config
+apt_update: true
+apt_upgrade: true
+users:
+  - name: ryan
+    groups: [ sudo ]
+    sudo: [ "ALL=(ALL) NOPASSWD:ALL" ]
+    shell: /bin/bash
+    ssh-authorized-keys:
+    - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4lY4YcpVi2KaH2xMzXCRbJ0S/PztQMlUHoCKTIjWEybREpfntD0hhaaKIUw8UUR4324mA5JVpBzlGyMusKFlVmbaMjkfNZpUyqR4OW4zcTEXXnowbD6FZpfMejPJl9WLD5Pmt88TM4NfqOhsqmInXj3X6iBpBdZ94bWLfFrNOYNqCInL3t91Ks3DHbD8MbwMJ4itPb6m3RAEkvVc1ImEo9NVpMKuSbyjbiQTuDHsLajCGOI6tf4IgZw2MIq9QnfklhxHfswTfjpN3hVhJgAtSwjbicXzn0gKGoxQvqK0mLtzMMe0/12pspT7b7Pwg6Boygat1PS1CryHJmCfdy0xf ryan@Ryans-MacBook-Pro.local'
+    - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCe4CJ0td1cg6cMLzG948XiUlfXSczZZ6gIE95Qji/0tC3cVHXliTpbjFpL0R4lpvZzrXsKfDB7yr8X2Yyd7KBaVv/FOd9YHNLNzYDgixFMKOxsFo0ao+pRWl1cCQZFQ56CXXzxLuK0G5PagO6sEXVVuYL5exuYptlWrf+aY+0Y9DZqKRd1jnmrYtVsSY6t1RccygUOruBGp3K3uxGncSwDAhPLlkjRiJgfxBiNlHa7fKoYQjzi0+axirkukW6qSRrJ0qODagOUWo3m4zFdhWqhJfh2ely3X/oBxw/kJzr/zVJN0WWx/ZSngWfHqaJDT9fz5ASKN9yZILSghlYOz0wx ryan@Ryans-MacBook-Pro.local'
+    - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC20mYrwzDxHNQGhjiW8XgGTIu1l8MlW5WmVW1RCvQw/ROcLHLhQ683sVslpbgR8NidRkzO7srg0LhC8/dqSlTrl80gYkglybga7yumU1SV1cRP1cA3cgQDSJRGjCgOS/dvIRH7Gg9g0Rdj8PfEllNlefUZsLXED3cXAn1B2JhMhr1ytBU0EHlafybQJvPzsMYGZTJcVeUZwaI+vaC9cq0EGMwlnUb28JWWJTCugJfCRH1T5lRYlgf8BcB2amH7jQ0UotLS/5QnviVhSSLghQeEGtjQUoN05K+xFGVl/ho/9OJFlneQxZz4iqMYJu4j3L3vKyv6AgKku1IgGzqBMADl ryan@outlier'
+packages:
+    - python
+    - python-apt
+    - python3-apt
+final_message: "The system is finally up, after $UPTIME seconds"
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
